@@ -1,0 +1,197 @@
+:root {
+    --primary: #6366f1;
+    --primary-dark: #4f46e5;
+    --background: #f8fafc;
+    --surface: #ffffff;
+    --text: #1e293b;
+    --error: #ef4444;
+    --warning: #f59e0b;
+    --success: #10b981;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--background);
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    color: var(--text);
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 600px;
+    margin: 50px auto;
+    padding: 2rem;
+    background: var(--surface);
+    border-radius: 16px;
+    box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1);
+}
+
+h1 {
+    color: var(--primary);
+    margin-bottom: 1.5rem;
+    font-size: 1.875rem;
+    text-align: center;
+}
+
+.password-input {
+    position: relative;
+    margin: 1.5rem 0;
+}
+
+input {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    font-size: 1rem;
+    border: 2px solid #e2e8f0;
+    border-radius: 8px;
+    background: var(--surface);
+    transition: all 0.3s ease;
+    margin-bottom: 1rem;
+}
+
+input:focus {
+    outline: none;
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.2);
+}
+
+button {
+    padding: 0.5rem 1rem;
+    margin: 0 0.25rem;
+    border: none;
+    border-radius: 6px;
+    background: var(--primary);
+    color: white;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+button:hover {
+    background: var(--primary-dark);
+    transform: translateY(-1px);
+}
+
+button:active {
+    transform: translateY(0);
+}
+
+#strength-meter {
+    height: 8px;
+    background-color: #e2e8f0;
+    border-radius: 999px;
+    margin-top: 1rem;
+    transition: all 0.3s ease;
+    overflow: hidden;
+}
+
+#feedback {
+    margin-top: 1.5rem;
+    padding: 1rem;
+    border-radius: 8px;
+    background: #f8fafc;
+}
+
+#feedback p {
+    margin-bottom: 0.5rem;
+}
+
+#feedback ul {
+    padding-left: 1.5rem;
+}
+
+#feedback li {
+    margin: 0.25rem 0;
+}
+
+/* Strength meter colors with gradients */
+.weak {
+    background: linear-gradient(90deg, var(--error) 0%, #fb7185 100%);
+}
+
+.fair {
+    background: linear-gradient(90deg, var(--warning) 0%, #fbbf24 100%);
+}
+
+.good {
+    background: linear-gradient(90deg, #22c55e 0%, var(--success) 100%);
+}
+
+.strong {
+    background: linear-gradient(90deg, #059669 0%, #047857 100%);
+}
+
+/* Button styles */
+#toggle-password {
+    background: #64748b;
+}
+
+#toggle-password:hover {
+    background: #475569;
+}
+
+#copy-password {
+    background: #8b5cf6;
+}
+
+#copy-password:hover {
+    background: #7c3aed;
+}
+
+#generate-password {
+    background: #06b6d4;
+}
+
+#generate-password:hover {
+    background: #0891b2;
+}
+
+/* Responsive design */
+@media (max-width: 640px) {
+    .container {
+        margin: 1rem;
+        padding: 1.5rem;
+    }
+
+    button {
+        margin-bottom: 0.5rem;
+        width: 100%;
+    }
+
+    h1 {
+        font-size: 1.5rem;
+    }
+}
+
+/* Add smooth animations */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+#feedback {
+    animation: fadeIn 0.3s ease-out;
+}
+
+/* Toast notification for copy feedback */
+.toast {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    padding: 1rem 2rem;
+    background: var(--primary);
+    color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+    animation: slideIn 0.3s ease-out;
+}
+
+@keyframes slideIn {
+    from { transform: translateX(100%); opacity: 0; }
+    to { transform: translateX(0); opacity: 1; }
+}
